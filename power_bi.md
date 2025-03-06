@@ -37,7 +37,7 @@ Criação de novas colunas:
         "Mais de R$200"
       );
 
--**`PrazoEntrega`:** Coluna condicional para classificar a entrega como dentro do prazo, ou em atraso
+- **`PrazoEntrega`:** Coluna condicional para classificar a entrega como dentro do prazo, ou em atraso
   ```DAX
   PrazoEntrega = 
   IF(orders[order_delivered_customer_date] <= orders[order_estimated_delivery_date], "No Prazo", "Atraso")
