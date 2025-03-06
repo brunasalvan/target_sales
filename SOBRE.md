@@ -11,9 +11,9 @@ Analisar as vendas da Target no Brasil e extrair insights que buscam otimizar os
 
 ## Ferramentas
 
-- Python
+- Python (3.10.9)
 - MySQL(8.0)
-- Power BI
+- Power BI (Desktop)
 
 ## Problema
 
