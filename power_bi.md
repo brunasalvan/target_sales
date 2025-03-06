@@ -18,7 +18,7 @@ Criação de novas colunas:
 
 ## Criação de Medidas
 
-- **Taxa de cancelamento de pedidos
+- **Taxa de cancelamento de pedidos**
   ```DAX
   taxaCancelamento = 
   VAR TotalPedidos = COUNT(orders[order_id])
