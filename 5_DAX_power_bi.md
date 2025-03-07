@@ -78,7 +78,7 @@ Criação de novas colunas:
 
 - **Número total de pedidos**
   ```DAX
-  TotalPedidos = COUNT(orders[order_id])
+  TotalVendas = COUNT(orders[order_id])
   
 - **Faturamento total**
   ```DAX
@@ -91,10 +91,10 @@ Criação de novas colunas:
 - **Taxa de cancelamento de pedidos**
   ```DAX
   TaxaCancelamento = 
-  VAR TotalPedidos = COUNT(orders[order_id])
+  VAR TotalVendas = COUNT(orders[order_id])
   VAR PedidosCancelados = CALCULATE(COUNT(orders[order_id]), orders[order_status] = "canceled")
 
-  RETURN DIVIDE(PedidosCancelados, TotalPedidos, 0)
+  RETURN DIVIDE(PedidosCancelados, TotalVendas, 0)
 
 - **Parcelamento médio dos pedidos**
   ```DAX
