@@ -76,13 +76,18 @@ Criação de novas colunas:
 
 ## Criação de Medidas
 
+- **Número total de pedidos**
+  ```DAX
+  TotalPedidos = COUNT(orders[order_id])
+  
+- **Faturamento total**
+  ```DAX
+  Faturamento = SUM(payments[payment_value])
+
 - **Ticket médio**
   ```DAX
-  TicketMedio = DIVIDE([SomaPedidos], (COUNT(payments[order_id])))
+  TicketMedio = DIVIDE([Faturamento], (COUNT(payments[order_id])))
 
-- **Soma total dos pedidos**
-  ```DAX
-  SomaPedidos = SUM(payments[payment_value])
 - **Taxa de cancelamento de pedidos**
   ```DAX
   TaxaCancelamento = 
