@@ -3,6 +3,25 @@
 ## Relacionamento das Tabelas
 Validação e ajuste de relacionamento entre as Tabelas.
 
+## Criação da Tabela Calendário
+Para trabalhar com dados temporais de forma eficiente.
+  ```DAX
+  Calendario = 
+  VAR Data_Inicial = DATE(2016, 1, 1)
+  VAR Data_Final = DATE(2018, 12, 31)
+  RETURN
+    ADDCOLUMNS (
+        CALENDAR (Data_Inicial, Data_Final), 
+        "Ano", YEAR([Date]),
+        "Mês", MONTH([Date]),
+        "Trimestre", QUARTER([Date]),
+        "Dia", DAY([Date]),
+        "Dia da Semana", FORMAT([Date], "dddd"),
+        "Nome do Mês", FORMAT([Date], "mmmm"),
+        "Ano-Mês", FORMAT([Date], "YYYY-MM"),
+        "Semana do Ano", WEEKNUM([Date], 2)
+    )
+```
 ## Criação de Colunas
 Criação de novas colunas:
 
