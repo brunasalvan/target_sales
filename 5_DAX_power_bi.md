@@ -61,8 +61,7 @@ Criação de novas colunas:
   PrazoEntrega = 
   IF(orders[order_delivered_customer_date] <= orders[order_estimated_delivery_date], "No Prazo", "Atraso")
 
-- **`Regiao`:** Coluna condicional para classificar a região do país do cliente
-  ```DAX
+
   Regiao = 
   SWITCH(
     TRUE(),
@@ -72,6 +71,43 @@ Criação de novas colunas:
     customers[customer_state] IN {"SP", "RJ", "MG", "ES"}, "Sudeste",
     customers[customer_state] IN {"RS", "SC", "PR"}, "Sul",
     "Desconhecido"
+  )
+
+- **`FaturamentoVendedor`:** Coluna que retorna o valor total de faturamento para cada vendedor
+  ```DAX
+  FaturamentoVendedor = 
+  VAR TotalVendas = 
+    SUMX(
+        RELATEDTABLE('order_items'), 
+        CALCULATE(
+            SUM('payments'[payment_value])
+        )
+    )
+  RETURN 
+    TotalVendas
+
+- **`Nome`:** Coluna para inserir o nome dos principais vendedores presentes no dashboard
+  ```DAX
+  Nome = 
+  SWITCH(
+    'sellers'[seller_id],
+    "1025f0e2d44d7041d6cf58b6550e0bfa", "Fernando Torres",
+    "4a3ca9315b744ce9f8e9374361493884", "Gilberto Santos",
+    "7c67e1448b00f6e969d365cea6b010ab", "Cintia Lagos",
+    "25be943a321c8938947bdaabca979a90", "Gisele Ramos",
+    "7c67e1448b00f6e969d365cea6b010ab", "Humberto Neves",
+    "4869f7a5dfa277a7dca6462dcf3b52b2", "Carlos Nascimento",
+    "53243585a1d6dc2643021fd1853d8905", "Claudia Alves",
+    BLANK()
+  )
+  
+- **`FotoVendedor`:** Coluna para inserir a URL da foto da vendedora do mês
+  ```DAX
+  FotoVendedor = 
+  SWITCH(
+    'sellers'[seller_id],
+    "25be943a321c8938947bdaabca979a90", "https://www.olhodigital.com.br/wp-content/uploads/2023/03/foto_cracha02b.fw_.png",
+    BLANK()
   )
 
 ## Criação de Medidas
@@ -153,3 +189,42 @@ Criação de novas colunas:
 - **Frete médio**
   ```DAX
   FreteMedio = AVERAGE(order_items[freight_value])
+
+- **Faturamento do mês de agosto de 2018 para cada vendedor (último mês ativo da base de dados)**
+  ```DAX
+  FaturamentoVendedorAgosto2018 = 
+  VAR TotalVendas = 
+    SUMX(
+        RELATEDTABLE('order_items'), 
+        CALCULATE(
+            SUM('payments'[payment_value]),
+            YEAR('orders'[order_purchase_timestamp]) = 2018,
+            MONTH('orders'[order_purchase_timestamp]) = 8
+        )
+    )
+  RETURN 
+    TotalVendas
+
+- **Percentual de entregas fora do prazo**
+  ```DAX
+  PercentualEntregasForaDoPrazo = 
+  VAR TotalPedidos = COUNT( orders[order_id] )
+  VAR PedidosforaPrazo = 
+    CALCULATE(
+        COUNT( orders[order_id] ),
+        orders[order_delivered_customer_date] > orders[order_estimated_delivery_date]
+    )
+  RETURN 
+    DIVIDE( PedidosforaPrazo, TotalPedidos, 0 ) * 100
+
+- **Percentual de entregas dentro do prazo**
+  ```DAX
+  PercentualEntregasNoPrazo = 
+  VAR TotalPedidos = COUNT( orders[order_id] )
+  VAR PedidosNoPrazo = 
+    CALCULATE(
+        COUNT( orders[order_id] ),
+        orders[order_delivered_customer_date] <= orders[order_estimated_delivery_date]
+    )
+  RETURN 
+    DIVIDE( PedidosNoPrazo, TotalPedidos, 0 ) * 100
