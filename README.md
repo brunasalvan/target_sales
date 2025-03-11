@@ -41,7 +41,7 @@ The goal of this project is to identify factors that impact Target's sales in Br
 
 -> [1_modelo_fisico.sql](https://github.com/brunasalvan/target_sales/blob/main/1_modelo_fisico.sql)
 
--> [2_python_importacao_tabelas.py](https://github.com/brunasalvan/target_sales/blob/main/2_python_importacao_tabelas)
+-> [2_python_importacao_tabelas.ipynb](https://github.com/brunasalvan/target_sales/blob/main/2_python_importacao_tabelas.ipynb)
 
 #### Transformation (Transform):
 - Within MySQL, transformations were applied to correct inconsistent and missing data, ensuring data quality.
