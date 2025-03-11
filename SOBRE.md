@@ -19,9 +19,9 @@ O objetivo deste projeto é identificar fatores que impactam as vendas da Target
 - MySQL(8.0)
 - Power BI (Desktop)
 
-<details>
-<summary><h2>Problema</h2></summary>
-Como otimizar as vendas da Target no Brasil, identificando padrões de consumo e segmentando clientes de acordo com suas preferências e comportamentos de compra?
+<h2>Problema</h2>
+
+**Como otimizar as vendas da Target no Brasil, identificando padrões de consumo e segmentando clientes de acordo com suas preferências e comportamentos de compra?**
 
 - Existem períodos específicos do ano em que as vendas são mais baixas?
 - Quais categorias de produtos estão tendo o melhor desempenho e quais poderiam ser melhoradas?
