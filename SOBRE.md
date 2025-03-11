@@ -35,15 +35,25 @@ O objetivo deste projeto é identificar fatores que impactam as vendas da Target
 <summary><h2>Procedimentos</h2></summary>
 
 #### Extração (Extract):
-- Os dados foram extraídos de um arquivo .csv disponível no Kaggle.com.
+- Os dados foram extraídos de um arquivo .csv disponível no Kaggle.com, [aqui](https://www.kaggle.com/datasets/devarajv88/target-dataset).
 #### Carga (Load)
 - Utilizando Python, os dados foram carregados diretamente para o MySQL, onde as tabelas necessárias foram criadas.
+
+-> [1_modelo_fisico.sql](https://github.com/brunasalvan/target_sales/blob/main/1_modelo_fisico.sql)
+
+-> [2_python_importacao_tabelas.py](https://github.com/brunasalvan/target_sales/blob/main/2_python_importacao_tabelas)
 #### Transformação (Transform):
 - Dentro do MySQL foram feitas transformações para corrigir dados inconsistentes e faltantes, garantindo a qualidade da informação.
+
+-> [3_limpeza_transformacao.sql](https://github.com/brunasalvan/target_sales/blob/main/3_limpeza_transformacao.sql)
 #### Carga no Power BI:
 - Após a transformação, os dados foram carregados no Power BI para visualização.
+
+-> [target_dashboard.pdf](https://github.com/brunasalvan/target_sales/blob/main/target_dashboard.pdf)
 #### Criação de Medidas DAX:
 - No Power BI, medidas DAX foram criadas para permitir análises dinâmicas e aprofundadas dos dados, com base no script já realizado no MySQL.
+
+-> [5_DAX_power_bi.md](https://github.com/brunasalvan/target_sales/blob/main/5_DAX_power_bi.md)
 </details>
 
 <details>
