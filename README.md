@@ -48,6 +48,11 @@ The goal of this project is to identify factors that impact Target's sales in Br
 
 -> [3_limpeza_transformacao.sql](https://github.com/brunasalvan/target_sales/blob/main/3_limpeza_transformacao.sql)
 
+#### Exploratory Analysis:
+- I analyzed the data by running SQL queries to extract the key indicators.
+
+-> [4_queries.sql](https://github.com/brunasalvan/target_sales/blob/main/4_queries.sql)
+
 #### Loading into Power BI:
 - After transformation, the data was loaded into Power BI for visualization.
 
