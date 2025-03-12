@@ -46,8 +46,13 @@ O objetivo deste projeto é identificar fatores que impactam as vendas da Target
 - Dentro do MySQL foram feitas transformações para corrigir dados inconsistentes e faltantes, garantindo a qualidade da informação.
 
 -> [3_limpeza_transformacao.sql](https://github.com/brunasalvan/target_sales/blob/main/3_limpeza_transformacao.sql)
-#### Carga no Power BI:
-- Após a transformação, os dados foram carregados no Power BI para visualização.
+
+#### Análise exploratória:
+- Com os dados prontos, os estudei rodando queries em SQL para tirar os principais indicadores
+
+-> [4_queries.sql](https://github.com/brunasalvan/target_sales/blob/main/4_queries.sql)
+#### Carga (Load) no Power BI:
+- Após a transformação e estudo dos dados no MySQL os dados foram carregados no Power BI para visualização.
 
 -> [target_dashboard.pdf](https://github.com/brunasalvan/target_sales/blob/main/target_dashboard.pdf)
 #### Criação de Medidas DAX:
